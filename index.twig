@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<style>
+body {
+	margin: auto;
+	padding: 0px;
+	color: #6A3386;
+}
+
+a {
+	text-decoration: none;
+	color: #6A3386;
+}
+
+.numbers {
+}
+.numbers table {
+	margin: 250px auto 200px auto;
+	border: 0px;
+	border-spacing: 0px;
+}
+.numbers td {
+	text-align: right;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+	padding: 15px;
+}
+.numbers td.choosed {
+	text-align: right;
+	padding: 15px;
+	background-color: #fe9999;
+}
+.indicator {
+	margin: 50px auto 20px auto;
+	text-align: center;
+	width: 600px;
+}
+
+.reset {
+	margin: auto;
+	text-align: center;
+	width: 600px;
+}
+
+</style>
+<title>ryo-an-ji</title>
+</head>
+<body>
+<div class="numbers">
+<table>
+{% for row in table %}
+<tr>
+	{% for col in row %}
+		{% if col in choosed %}
+			<td class="choosed">{{ col }}</td>
+		{% else %}
+			<td><a href="/?choosed={{ col }}">{{ col }}</a></td>
+		{% endif %}
+	{% endfor %}
+</tr>
+{% endfor %}
+</div>
+</table>
+<div class="indicator">{{ indicator }}</div>
+<div class="reset"> <a href="/?reset=1">reset</a></div>
+</body>
+</html>
